@@ -1,26 +1,24 @@
 # Docker Guide
 
-## Install Docker Engine on Ubuntu
+## Installation
 
 ### Install Docker Engine on Ubuntu
 1. Uninstall old versions
-Older versions of Docker were called `docker`, `docker.io`, or `docker-engine`. **If these are installed, uninstall them:**
 ```
+# Older versions of Docker were called `docker`, `docker.io`, or `docker-engine`. **If these are installed, uninstall them.
+# The contents of `/var/lib/docker/`, including images, containers, volumes, and networks, are preserved. The Docker Engine package is now called `docker-ce`.
 $ sudo apt-get remove docker docker-engine docker.io containerd runc
 ```
-The contents of `/var/lib/docker/`, including images, containers, volumes, and networks, are preserved. The Docker Engine package is now called `docker-ce`.
 
 2. Install using the convenience script
 ```
 $ curl -fsSL https://get.docker.com -o get-docker.sh
 $ sudo sh get-docker.sh
-```
-If you would like to use Docker as a non-root user, you should now consider adding your user to the `docker` group with something like:
-```
+# If you would like to use Docker as a non-root user, you should now consider adding your user to the `docker` group with something like:
 $ sudo usermod -aG docker your-user
 ```
 
-## Install Nvidia-Docker Engine on Ubuntu
+### Install Nvidia-Docker Engine on Ubuntu
 
 **If you wish to use GPU with Docker use nvidia-docker** to run your image instead of regular docker.
 
@@ -50,16 +48,25 @@ $ docker run --runtime=nvidia --rm nvidia/cuda:9.0-base nvidia-smi
 $ nvidia-docker run --rm nvidia/cuda:9.0-base nvidia-smi
 ```
 
-## Uninstall Docker Engine
+### Uninstall Docker Engine
 
 1. Uninstall the Docker Engine, CLI, and Containerd packages:
 ```
 $ sudo apt-get purge docker-ce docker-ce-cli containerd.io
 ```
 
-2. Images, containers, volumes, or customized configuration files on your host are not automatically removed. To delete all images, containers, and volumes:
+2. Images, containers, volumes, or customized configuration files on your host are not automatically removed. To delete all images, containers, and volumes: 
 ```
+# You must delete any edited configuration files manually.
 $ sudo rm -rf /var/lib/docker
 ```
-You must delete any edited configuration files manually.
 
+## Docker Usage
+
+### Build
+
+### Run
+
+### Mount
+
+### Port
