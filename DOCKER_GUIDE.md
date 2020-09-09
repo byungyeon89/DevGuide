@@ -63,10 +63,49 @@ $ sudo rm -rf /var/lib/docker
 
 ## Docker Usage
 
-### Build
+### Build from Dockerfile
+```
+# Inside repo's folder with a Dockerfile that contain minimal dependencies and optional ones.
+$ docker build -t [IMAGE_NAME:VERSION] .
+```
 
 ### Run
-
+```
+# Once the build process is complete you can run it by its name or by the last unique ID that was provided upon completion 
+# To run the image in a container and get to bash you can launch it interactively using the following where you call it by its repository name:
+# CPU
+$ docker run -it [IMAGE_NAME:VERSION] /bin/bash
+# GPU
+$ docker run -it [IMAGE_NAME:VERSION] /bin/bash
+```
 ### Mount
 
+```
+# CPU 
+$ docker run -v [HOST_FOLDER_DIR]:[CONTAINER_FOLDER_DIR] [IMAGE_NAME:VERSION]
+# GPU 
+$ nvidia-docker run -v [HOST_FOLDER_DIR]:[CONTAINER_FOLDER_DIR] [IMAGE_NAME:VERSION]
+```
 ### Port
+```
+# default port
+# CPU
+$ docker run -p 8888:8888 [IMAGE_NAME:VERSION]
+# GPU
+$ nvidia-docker run -p 8888:8888 [IMAGE_NAME:VERSION]
+```
+
+### Commit
+```
+# Exit the container and commit the change
+$ docker commit $(docker ps --last 1 -q) [IMAGE_NAME:VERSION]A
+```
+
+### Stop or Remove Container
+```
+# Specific Container
+$ docker {rm, stop} [CONTAINER_ID] 
+# Only last Container
+$ docker {rm, stop} $(docker ps --last 1 -q)
+```
+
