@@ -2,6 +2,7 @@
 
 ## Install Docker Engine on Ubuntu
 
+### Install Docker Engine on Ubuntu
 1. Uninstall old versions
 Older versions of Docker were called `docker`, `docker.io`, or `docker-engine`. **If these are installed, uninstall them:**
 ```
@@ -61,3 +62,4 @@ $ sudo apt-get purge docker-ce docker-ce-cli containerd.io
 $ sudo rm -rf /var/lib/docker
 ```
 You must delete any edited configuration files manually.
+
