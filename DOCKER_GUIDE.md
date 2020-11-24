@@ -77,7 +77,7 @@ $ docker build -t [IMAGE_NAME:VERSION] .
 # CPU
 $ docker run -it [IMAGE_NAME:VERSION] /bin/bash
 # GPU
-$ docker run -it [IMAGE_NAME:VERSION] /bin/bash
+$ nvidia-docker run -it [IMAGE_NAME:VERSION] /bin/bash
 ```
 ### Mount
 
@@ -99,7 +99,7 @@ $ nvidia-docker run -p 8888:8888 [IMAGE_NAME:VERSION]
 ### Commit
 ```
 # Exit the container and commit the change
-$ docker commit $(docker ps --last 1 -q) [IMAGE_NAME:VERSION]A
+$ docker commit $(docker ps --last 1 -q) [IMAGE_NAME:VERSION]
 ```
 
 ### Stop or Remove Container
